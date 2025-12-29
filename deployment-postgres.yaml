@@ -95,5 +95,5 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: hostpath  # Use Docker Desktop default storage class
+  # storageClassName omitted to use cluster default
 
