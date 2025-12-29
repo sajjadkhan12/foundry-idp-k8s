@@ -6,7 +6,8 @@ namespace: foundry-idp
 resources:
   - namespace.yaml
   - configmap-backend.yaml
-  - secret-backend.yaml
+  # secret-backend.yaml is managed separately (not in Git for security)
+  # Apply it manually: kubectl apply -f secret-backend.yaml
   - deployment-postgres.yaml
   - deployment-backend.yaml
   - deployment-worker.yaml
@@ -19,8 +20,11 @@ resources:
   - pvc-backend-storage.yaml
 
 # Common labels
-commonLabels:
-  app.kubernetes.io/name: foundry-idp
-  app.kubernetes.io/part-of: foundry-idp
-  app.kubernetes.io/managed-by: kustomize
+labels:
+  - pairs:
+      app.kubernetes.io/name: foundry-idp
+      app.kubernetes.io/part-of: foundry-idp
+      app.kubernetes.io/managed-by: kustomize
+    includeSelectors: true
+    includeTemplates: true
 
