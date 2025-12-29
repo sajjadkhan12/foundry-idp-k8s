@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: worker
-        image: ghcr.io/owner/foundry-idp/backend:latest
+        image: ghcr.io/sajjadkhan12/foundry-idp/backend:latest
         imagePullPolicy: IfNotPresent
         command: ["celery", "-A", "app.workers", "worker", "--loglevel=info", "--concurrency=4"]
         envFrom:
