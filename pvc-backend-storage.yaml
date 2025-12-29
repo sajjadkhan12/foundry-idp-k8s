@@ -5,9 +5,9 @@ metadata:
   namespace: foundry-idp
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce  # Most storage classes support this
   resources:
     requests:
-      storage: 20Gi
-  storageClassName: hostpath  # Use Docker Desktop default storage class
+      storage: 10Gi
+  # storageClassName omitted to use cluster default
 
