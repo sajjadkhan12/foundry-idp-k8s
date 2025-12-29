@@ -23,6 +23,8 @@ spec:
         app: frontend
         component: web
     spec:
+      imagePullSecrets:
+      - name: ghcr-secret
       containers:
       - name: frontend
         image: ghcr.io/sajjadkhan12/nexus-platform/frontend:latest

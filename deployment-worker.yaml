@@ -23,9 +23,11 @@ spec:
         app: backend
         component: worker
     spec:
+      imagePullSecrets:
+      - name: ghcr-secret
       containers:
       - name: worker
-        image: ghcr.io/sajjadkhan12/foundry-idp/backend:latest
+        image: ghcr.io/sajjadkhan12/nexus-platform/backend:latest
         imagePullPolicy: IfNotPresent
         command: ["celery", "-A", "app.workers", "worker", "--loglevel=info", "--concurrency=4"]
         envFrom:

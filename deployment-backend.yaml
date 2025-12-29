@@ -23,6 +23,8 @@ spec:
         app: backend
         component: api
     spec:
+      imagePullSecrets:
+      - name: ghcr-secret
       containers:
       - name: backend
         image: ghcr.io/sajjadkhan12/nexus-platform/backend:latest
