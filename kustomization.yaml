@@ -16,7 +16,7 @@ resources:
   - service-backend.yaml
   - service-frontend.yaml
   - service-redis.yaml
-  - ingress.yaml
+  - ingressroute.yaml
   - pvc-backend-storage.yaml
 
 # Common labels
