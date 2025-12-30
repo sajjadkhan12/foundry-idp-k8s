@@ -7,10 +7,11 @@ metadata:
     app: backend
     component: api
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
   - port: 8000
     targetPort: 8000
+    nodePort: 30081
     protocol: TCP
     name: http
   selector:
