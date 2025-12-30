@@ -1,0 +1,37 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: frontend-route
+  namespace: foundry-idp
+spec:
+  parentRefs:
+  - name: foundry-idp-gateway
+    namespace: foundry-idp
+    sectionName: http
+  - name: foundry-idp-gateway
+    namespace: foundry-idp
+    sectionName: https
+  hostnames:
+  - foundry-idp.com
+  - www.foundry-idp.com
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: frontend-service
+      port: 80
+    filters:
+    - type: ResponseHeaderModifier
+      responseHeaderModifier:
+        add:
+        - name: X-Frame-Options
+          value: SAMEORIGIN
+        - name: X-Content-Type-Options
+          value: nosniff
+        - name: X-XSS-Protection
+          value: "1; mode=block"
+        - name: Referrer-Policy
+          value: strict-origin-when-cross-origin
+

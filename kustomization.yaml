@@ -16,7 +16,12 @@ resources:
   - service-backend.yaml
   - service-frontend.yaml
   - service-redis.yaml
-  - ingress.yaml
+  # Gateway API (modern replacement for Ingress)
+  - gateway.yaml
+  - httproute-frontend.yaml
+  - httproute-backend.yaml
+  # Legacy Ingress (commented out - use Gateway API instead)
+  # - ingress.yaml
   - pvc-backend-storage.yaml
 
 # Common labels
