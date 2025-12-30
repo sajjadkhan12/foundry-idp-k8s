@@ -27,7 +27,7 @@ spec:
       - name: ghcr-secret
       containers:
       - name: backend
-        image: ghcr.io/sajjadkhan12/nexus-platform/backend:test
+        image: ghcr.io/sajjadkhan12/nexus-platform/backend:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
