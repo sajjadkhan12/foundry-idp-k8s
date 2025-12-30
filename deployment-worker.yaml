@@ -28,7 +28,7 @@ spec:
       containers:
       - name: worker
         image: ghcr.io/sajjadkhan12/nexus-platform/backend:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         command: ["celery", "-A", "app.workers", "worker", "--loglevel=info", "--concurrency=4"]
         envFrom:
         - configMapRef:

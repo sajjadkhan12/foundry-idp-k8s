@@ -28,7 +28,7 @@ spec:
       containers:
       - name: frontend
         image: ghcr.io/sajjadkhan12/nexus-platform/frontend:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
           name: http
